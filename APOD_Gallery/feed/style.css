@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent: #4fa3e8;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    background-color: black;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ─── BACKGROUND ─── */
+spline-viewer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: -1;
+}
+
+/* ─── NAV ─── */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.3s;
+}
+
+.back-link:hover { opacity: 0.7; }
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+/* ─── MAIN CONTENT ─── */
+.feed-container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1.5rem 10rem;
+    position: relative;
+    z-index: 1;
+}
+
+.feed-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.feed-header h1 {
+    font-family: 'Climate Crisis', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.feed-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* ─── SINGLE APOD DISPLAY ─── */
+.apod-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.apod-image-container {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    background: #0a0a0a;
+}
+
+.apod-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.apod-text {
+    padding: 2rem;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+}
+
+.apod-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.apod-description {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ─── LOADING ─── */
+.loading {
+    text-align: center;
+    padding: 10rem 0;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.3rem;
+    color: var(--text-secondary);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .top-nav { padding: 1rem 1.5rem; }
+    .apod-title { font-size: 1.4rem; }
+}

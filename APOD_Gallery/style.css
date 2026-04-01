@@ -60,7 +60,8 @@ h1 {
     justify-content: center;
 }
 
-.explore-btn, .secondary-btn {
+.explore-btn,
+.secondary-btn {
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
     border-radius: 50px;
