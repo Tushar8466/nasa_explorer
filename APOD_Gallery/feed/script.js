@@ -1,9 +1,9 @@
-const API_KEY = "BPYHJB6Zf3g6N0aSexLlkZIGli8MN54tn7bJ5nxc";
+
 const feedContainer = document.getElementById("apod-feed");
 
 async function fetchDailyApod() {
     try {
-        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`);
+        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=BPYHJB6Zf3g6N0aSexLlkZIGli8MN54tn7bJ5nxc`);
         const data = await response.json();
         
         displaySingleApod(data);
