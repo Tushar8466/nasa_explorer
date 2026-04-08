@@ -7,19 +7,44 @@
 }
 
 :root {
+    --bg-color: #000000;
     --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
     --accent: #4fa3e8;
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.7);
+    --nav-bg: rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode {
+    --bg-color: #f5f7fa;
+    --glass: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --nav-bg: rgba(255, 255, 255, 0.8);
 }
 
 body {
-    background-color: black;
+    background-color: var(--bg-color);
     color: var(--text-primary);
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode spline-viewer {
+    filter: invert(0.9) hue-rotate(180deg);
+    opacity: 0.3;
+}
+
+body.light-mode .overlay {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+body.light-mode .back-link {
+    color: var(--text-primary);
 }
 
 /* ─── BACKGROUND ─── */
@@ -44,13 +69,47 @@ spline-viewer {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 3rem;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
     position: sticky;
     top: 0;
     z-index: 100;
 }
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.theme-toggle {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--glass-border);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sun-icon { display: none; }
+body.light-mode .moon-icon { display: none; }
+body.light-mode .sun-icon { display: block; }
 
 .back-link {
     color: white;
@@ -100,6 +159,43 @@ spline-viewer {
     color: var(--text-secondary);
     font-size: 1.1rem;
     font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.filter-controls label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.date-picker {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    color-scheme: dark;
+    outline: none;
+    transition: all 0.3s;
+}
+
+body.light-mode .date-picker {
+    color-scheme: light;
+}
+
+.date-picker:focus {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* ─── SINGLE APOD DISPLAY ─── */

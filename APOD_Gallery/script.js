@@ -26,4 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "sine.inOut",
         delay: 2.5
     });
+
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+        body.classList.add("light-mode");
+    }
+
+    themeToggle.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+        const isLight = body.classList.contains("light-mode");
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
 });
