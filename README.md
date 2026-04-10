@@ -1,8 +1,8 @@
 # 🚀 NASA Space Explorer
 
-> Explore the universe — one image at a time.
+> Journey through the cosmos, one discovery at a time.
 
-NASA Space Explorer is a web application that brings the cosmos to your screen using NASA's public APIs. Discover breathtaking astronomical imagery, from today's featured photo to the exact moment the universe looked on **your birthday**.
+NASA Space Explorer is a premium web experience that brings the breathtaking beauty of space to your screen. Leveraging NASA's official APIs, this application allows you to explore astronomical wonders through a high-performance, visually stunning interface featuring 3D visuals, smooth animations, and interactive galleries.
 
 🔗 **Live Repository:** [github.com/Tushar8466/nasa_explorer](https://github.com/Tushar8466/nasa_explorer)
 
@@ -11,10 +11,16 @@ NASA Space Explorer is a web application that brings the cosmos to your screen u
 ## ✨ Features
 
 ### 🌌 Astronomy Picture of the Day (APOD)
-Get NASA's handpicked **Astronomy Picture of the Day** — a stunning image or video of our universe, accompanied by a brief explanation written by a professional astronomer. A new cosmic wonder, every single day.
+The core experience provides NASA's handpicked **Astronomy Picture of the Day**. Each discovery is accompanied by a professional astronomical explanation, providing deep context to the captured celestial phenomena.
 
-### 🎂 Space on Your Birthday
-Ever wondered what the universe looked like the day you were born? Enter your **birthday** and instantly travel back in time to see the NASA astronomy image from that exact date. A unique, personal connection to the cosmos.
+### 📅 Cosmic Time Travel
+Ever wondered what the universe looked like on a specific date? Use our **Cosmic Date Feature** to travel back in time. Simply select a date, and the application will fetch the specific APOD for that moment in history.
+
+### 🖼️ Space Gallery
+Explore a curated **Space Gallery** featuring random deep-space captures. Our gallery cards are designed with a "big card" aesthetic, featuring glassmorphism effects and inline descriptions for an effortless browsing experience.
+
+### 🎭 Premium Dark/Light Modes
+Full support for dynamic theme switching. Whether you're stargazing late at night or browsing during the day, the interface adapts with customized Spline 3D backgrounds for both dark and light orientations.
 
 ---
 
@@ -22,29 +28,20 @@ Ever wondered what the universe looked like the day you were born? Enter your **
 
 | Technology | Purpose |
 |------------|---------|
-| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) **HTML5** | Structure & Markup |
-| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) **CSS3** | Styling & Animations |
-| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) **JavaScript** | Logic & API Integration |
-| 🛰️ **NASA APOD API** | Astronomy image data |
-
----
-
-## 📸 Screenshots
-
-> _Add screenshots of your app here for a better preview._
-
-| Feature | Preview |
-|--------|---------|
-| 🌠 Image of the Day | _(screenshot)_ |
-| 🎂 Birthday Space Image | _(screenshot)_ |
+| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) | Semantic Structure |
+| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) | Glassmorphism & Responsive Design |
+| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) | Logic & API Orchestration |
+| 🪐 **Spline** | Interative 3D Backgrounds & Scenes |
+| 🎞️ **GSAP** | High-performance Animations & Transitions |
+| 🛰️ **NASA API** | Live Cosmic Data Source |
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- A modern web browser (Chrome, Firefox, Edge, Safari)
-- A free **NASA API Key** from [api.nasa.gov](https://api.nasa.gov/)
+- A modern web browser (supporting WebGL for Spline 3D)
+- A NASA API Key (obtained for free at [api.nasa.gov](https://api.nasa.gov/))
 
 ### Installation
 
@@ -53,41 +50,16 @@ Ever wondered what the universe looked like the day you were born? Enter your **
    git clone https://github.com/Tushar8466/nasa_explorer.git
    ```
 
-2. **Navigate into the project folder**
+2. **Navigate into the project**
    ```bash
-   cd nasa_explorer
+   cd nasa_explorer/APOD_Gallery
    ```
 
-3. **Add your NASA API Key**
-
-   Open the JavaScript file and replace the placeholder with your key:
-   ```js
-   const API_KEY = "YOUR_NASA_API_KEY_HERE";
-   ```
-
-4. **Open the app**
-
-   Simply open `index.html` in your browser — no build tools or servers required!
+3. **Open the Explorer**
+   Open `index.html` in your browser.
    ```bash
    open index.html
    ```
-
----
-
-## 🌐 NASA API Reference
-
-This project uses the **APOD (Astronomy Picture of the Day)** endpoint:
-
-```
-GET https://api.nasa.gov/planetary/apod?api_key=YOUR_KEY&date=YYYY-MM-DD
-```
-
-| Parameter | Description |
-|-----------|-------------|
-| `api_key` | Your NASA API key (use `DEMO_KEY` for testing) |
-| `date` | Specific date in `YYYY-MM-DD` format |
-
-> Get your free API key at 👉 [https://api.nasa.gov/](https://api.nasa.gov/)
 
 ---
 
@@ -95,30 +67,16 @@ GET https://api.nasa.gov/planetary/apod?api_key=YOUR_KEY&date=YYYY-MM-DD
 
 ```
 nasa_explorer/
-│
-├── index.html        # Main HTML file
-├── style.css         # Stylesheet
-├── script.js         # JavaScript logic & API calls
-└── README.md         # Project documentation
+├── APOD_Gallery/
+│   ├── index.html        # Landing Page (Splash Screen)
+│   ├── style.css         # Main Animations & Layout
+│   ├── script.js         # Landing Animations & Theme Logic
+│   └── feed/
+│       ├── index.html    # Main Application Hub
+│       ├── style.css     # Gallery & Feed Styles
+│       └── script.js     # APOD Logic & API Interaction
+└── README.md             # Project documentation
 ```
-
----
-
-## 🤝 Contributing
-
-Contributions are always welcome! If you have ideas for new features or improvements:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add your feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a **Pull Request**
-
----
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
